@@ -50,4 +50,9 @@ class Stud(db.Model):
     def get_stud(id):
       return[Stud.json(Stud.query.filter_by(id=id).first())]  
 
+    def delete_stud(_id, _sname, _slastname):
+        stud_to_delete = Stud.query.filter_by(id=_id).first()
+        stud_to_delete.sname= _sname
+        stud_to_delete.slastname=_slastname
+        db.session.commit()
 

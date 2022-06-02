@@ -60,5 +60,13 @@ def add_stud():
    response = Response("add stud",202, mimetype='applicaion/json')
    return response
  
+@app.route('/stud/<int:id>',methods=['DELETE'])
+def delete_stud(id):
+   request_data= request.get_json()
+   print(request_data)
+   Stud.add_stud(request_data['sname'], request_data['slastname'])
+   response = Response("delete stud",202, mimetype='applicaion/json')
+   return response
+   
 if __name__ == "__main__":
     app.run(debug=True,port=8000)
