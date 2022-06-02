@@ -67,6 +67,15 @@ def delete_stud(id):
    Stud.add_stud(request_data['sname'], request_data['slastname'])
    response = Response("delete stud",202, mimetype='applicaion/json')
    return response
-   
+
+  
+@app.route('/stud/<int:id>', methods=['PUT'])
+def update_stud():
+   request_data= request.get_json()
+   print(request_data)
+   Stud.update_emp(request_data['name'], request_data['lastname'])
+   response = Response("aupdate stud",202, mimetype='applicaion/json')
+   return response 
+
 if __name__ == "__main__":
     app.run(debug=True,port=8000)

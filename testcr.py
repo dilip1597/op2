@@ -56,3 +56,8 @@ class Stud(db.Model):
         stud_to_delete.slastname=_slastname
         db.session.commit()
 
+def update_stud(_id, _sname, _slastname):
+        stud_to_update = Stud.query.filter_by(id=_id).first()
+        stud_to_update.sname= _sname
+        stud_to_update.slastname=_slastname
+        db.session.commit()
